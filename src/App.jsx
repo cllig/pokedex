@@ -1,28 +1,34 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import Card from "./components/Card";
 
 const App = () => {
-  const [data, setData] = useState(null);
+  const [pokemons, setPokemons] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon?limit=151`)
+    setLoading(true);
+    fetch(`https://pokebuildapi.fr/api/v1/pokemon`)
       .then((res) => res.json())
       .then((allpokemon) => {
-        allpokemon.results.forEach((pokemon) => {
-          fetch(pokemon.url)
-            .then((res) => res.json())
-            .then((pokeData) => {
-              setData(pokeData);
-            });
-        });
+        setPokemons(allpokemon);
+        setLoading(false);
       });
   }, []);
 
-  console.log(data);
+  // console.log(pokemons);
 
   return (
     <div className="App">
       <h1>Pokedex</h1>
+      {loading && <p>... loading</p>}
+
+      {pokemons &&
+        pokemons.map((pokemon, id) => (
+          <button>
+            <Card pokemon={pokemon} key={pokemon.id} />
+          </button>
+        ))}
     </div>
   );
 };
