@@ -15,16 +15,15 @@ const HomePage = () => {
       });
   }, []);
 
+  console.log(pokemons);
+
   return (
-    <div className="App">
-      <h1>Pokedex</h1>
+    <div className="bg-slate-100 w-screen min-h-screen flex flex-wrap justify-center p-4">
       {loading && <p>... loading</p>}
 
       {pokemons &&
         pokemons.map((pokemon, id) => (
-          <button>
-            <Card pokemon={pokemon} key={pokemon.id} />
-          </button>
+          <Card pokemon={pokemon} key={pokemon.id} />
         ))}
     </div>
   );

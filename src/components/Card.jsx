@@ -3,7 +3,7 @@ const Card = (props) => {
 
   return (
     <main>
-      <img src={pokemon.image} alt={pokemon.name} />
+      <img src={pokemon.sprite} alt={pokemon.name} />
       <h1>{pokemon.name}</h1>
     </main>
   );
