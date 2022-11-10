@@ -1,11 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
+import Navbar from "./components/Navbar";
 import HomePage from "./views/HomePage";
 import PokemonDetail from "./views/PokemonDetail";
 
 const App = () => {
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
         <Route index path="/" element={<HomePage />} />
         <Route path="pokemon/:id" element={<PokemonDetail />} />
