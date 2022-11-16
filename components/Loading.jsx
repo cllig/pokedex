@@ -1,7 +1,7 @@
 const Loading = () => {
   return (
-    <div role="status" className="absolute bottom-0 right-0 m-4">
-      <img className="w-20" src="./assets/DD0.gif" alt="Carapuce bg" />
+    <div role="status" className="absolute -bottom-2 -right-4 z-10">
+      <img className="w-20" src="./images/DD0.gif" alt="Carapuce bg" />
     </div>
   );
 };
